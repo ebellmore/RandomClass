@@ -162,47 +162,6 @@
     }
   }
 
-
-var d={class:"",race:"",spec:""};
-        d.class=_Select(character.class, d.race);
-        d.race=_Select(character.race, d.class);
-        d.spec=_Select(character.spec, d.class);
-  
-  if(d.spec == "Survival")
-  { survivalAllowance  = Math.floor(Math.random() * 100) + 1
-    if(survivalAllowance < 50){
-      d={class:"",race:"",spec:""};
-            d.class=_Select(character.class, d.race);
-            d.race=_Select(character.race, d.class);
-            d.spec=_Select(character.spec, d.class);
-    }
-  }
-  if(d.spec == "Havoc" || d.spec == "Arms" || d.spec == "Fury" || d.spec == "Enhancement" || d.spec == "Assassination" || d.spec == "Combat" || d.spec == "Subtlety" || d.spec == "Retribution" || d.spec == "Windwalker" || d.spec == "Feral" || d.spec == "Frost" || d.spec == "Unholy")
-  {
-    meleeAllowance  = Math.floor(Math.random() * 100) + 1
-    if(meleeAllowance < 35){
-      d={class:"",race:"",spec:""};
-            d.class=_Select(character.class, d.race);
-            d.race=_Select(character.race, d.class);
-            d.spec=_Select(character.spec, d.class);
-    }   
-  }
-  if(class1 == (d.class + " " + d.spec) || class2 == (d.class + " " + d.spec) || class3 == (d.class + " " + d.spec) || class4 == (d.class + " " + d.spec) )
-  {
-    d={class:"",race:"",spec:""};
-          d.class=_Select(character.class, d.race);
-          d.race=_Select(character.race, d.class);
-          d.spec=_Select(character.spec, d.class);
-    if(class1 == d.spec || class2 == d.spec || class3 == d.spec || class4 == d.spec )
-    {
-      d={class:"",race:"",spec:""};
-            d.class=_Select(character.class, d.race);
-            d.race=_Select(character.race, d.class);
-            d.spec=_Select(character.spec, d.class);
-  
-    }
-  }
-
         function _Select(obj,param){
             var t=param?obj[param]:obj;
             return t[Math.floor(Math.random()*t.length)]; 
@@ -213,19 +172,19 @@ var d={class:"",race:"",spec:""};
   count++;
   if(count==1)
   { 
-    class1 = c.class + " " +c.spec;
+    class1 = c.spec + " " +c.class;
   }
   if(count==2)
   { 
-    class2 = c.class + " " +c.spec;
+    class2 = c.spec + " " +c.class;
   }
   if(count==3)
   { 
-    class3 = c.class + " " +c.spec;  
+    class3 = c.spec + " " +c.class;  
   }
   if(count==4)
   {
-    class4 = c.class + " " +c.spec;       
+    class4 = c.spec + " " +c.class;      
   }
   if(count==5)
   {
@@ -234,7 +193,7 @@ var d={class:"",race:"",spec:""};
     class3 = "";
     class4 = "";
   }
-  class1 = c.class + " "+c.spec;
+  class1 = c.spec + " " +c.class;
 
 
   // $(function () {
