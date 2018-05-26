@@ -14,14 +14,19 @@ app.get('/add', function(req, res){
   res.sendFile(__dirname + '/add.html');
 });
 
+app.get('/user', function(req, res){
+  res.sendFile(__dirname + '/user.html');
+});
+
 io.on('connection', function(socket){
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
+    console.log(msg.selector);
   });
 });
     
 
 
-http.listen(process.env.PORT || '0.0.0.0', function(){
+http.listen(process.env.PORT || 3000, function(){
   console.log('listening on *:3000');
 });

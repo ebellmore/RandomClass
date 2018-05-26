@@ -63,6 +63,7 @@
 </div> -->
 
 <script>
+
   var count = 0;
   var class1 = "";
   var class2 = "";
@@ -265,7 +266,13 @@
     
   
   }
-  count++;
+
+    count++;
+      var socket = io();
+      socket.emit('chat message', $('#m').val());
+      socket.on('chat message', function(msg){
+          
+          
   if(count==1)
   { class1 = c.class + " " +c.spec;
     var race = document.getElementsByName("first_race")[0];
@@ -346,8 +353,8 @@
     var race = document.getElementsByName("fourth_class")[0];
     race.innerHTML = "";  
   }
-  
-  
+
+        });
 
     }
 })();
@@ -374,13 +381,11 @@
           return false;
         });
         socket.on('chat message', function(msg){
-
-        var race = document.getElementsByName("first_class")[0];
-        race.innerHTML = "TEST";
+        alert(class1);
 
 
-//           var button = document.createElement("button");
-// button.innerHTML = "Do Something";
+           var button = document.createElement("button");
+ button.innerHTML = "Do Something";
       
 
 
