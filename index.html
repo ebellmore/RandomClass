@@ -149,6 +149,22 @@
     }
   }
 
+  if(class1 == (c.class + " " + c.spec) || class2 == (c.class + " " + c.spec) || class3 == (c.class + " " + c.spec) || class4 == (c.class + " " + c.spec) )
+  {
+    c={class:"",race:"",spec:""};
+          c.class=_Select(character.class, c.race);
+          c.race=_Select(character.race, c.class);
+          c.spec=_Select(character.spec, c.class);
+    if(class1 == (c.class + " " + c.spec) || class2 == (c.class + " " + c.spec) || class3 == (c.class + " " + c.spec) || class4 == (c.class + " " + c.spec) )
+    {
+      c={class:"",race:"",spec:""};
+            c.class=_Select(character.class, c.race);
+            c.race=_Select(character.race, c.class);
+            c.spec=_Select(character.spec, c.class);
+  
+    }
+  }
+
 
         function _Select(obj,param){
             var t=param?obj[param]:obj;
