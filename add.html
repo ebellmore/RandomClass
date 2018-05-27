@@ -33,7 +33,7 @@
 
 <div class="row">
   <div class="col" name="first" style="height:300px;margin-left:10%;text-align:center;border:1.5px solid white;cursor: pointer;" onclick=""></div>
-  <div class="col" name="second"style="text-align:center;border:1.5px solid white;cursor: pointer;" onclick="alert("voted for second")"></div>
+  <div class="col" name="second"style="text-align:center;border:1.5px solid white;cursor: pointer;" onclick=""></div>
   <div class="col" name="third" style="text-align:center;border:1.5px solid white;cursor: pointer;" onclick=""></div>
   <div class="col" name="fourth" style="margin-right:10%;text-align:center;border:1.5px solid white;cursor: pointer;" onclick=""></div>
 </div>
@@ -114,8 +114,13 @@
             var x = document.getElementsByName("first")[0];
             x.appendChild(img);
 
-
-
+            var x = document.getElementsByName("second")[0];
+            x.removeChild(x.childNodes[0]);
+            var x = document.getElementsByName("third")[0];
+            x.removeChild(x.childNodes[0]);
+            var x = document.getElementsByName("fourth")[0];
+            x.removeChild(x.childNodes[0]);
+    
           }
 
           if(count == 2)
