@@ -126,9 +126,10 @@
         c.class=_Select(character.class, c.race);
         c.race=_Select(character.race, c.class);
         c.spec=_Select(character.spec, c.class);
-  
+   //alert(class1 + " " + class2 + " " + class3 + " " + class4);
   if(c.spec == "Survival")
-  { survivalAllowance  = Math.floor(Math.random() * 100) + 1
+  { 
+    survivalAllowance  = Math.floor(Math.random() * 100) + 1
     if(survivalAllowance < 50){
       c={class:"",race:"",spec:""};
             c.class=_Select(character.class, c.race);
@@ -146,21 +147,20 @@
             c.spec=_Select(character.spec, c.class);
     }   
   }
-  if(class1 == (c.class + " " + c.spec) || class2 == (c.class + " " + c.spec) || class3 == (c.class + " " + c.spec) || class4 == (c.class + " " + c.spec) )
+
+  if(class1 == (c.spec + " " + c.class) || class2 == (c.spec + " " + c.class) || class3 == (c.spec + " " + c.class) || class4 == (c.spec + " " + c.class))
   {
+    
     c={class:"",race:"",spec:""};
           c.class=_Select(character.class, c.race);
           c.race=_Select(character.race, c.class);
           c.spec=_Select(character.spec, c.class);
-    if(class1 == c.spec || class2 == c.spec || class3 == c.spec || class4 == c.spec )
-    {
-      c={class:"",race:"",spec:""};
-            c.class=_Select(character.class, c.race);
-            c.race=_Select(character.race, c.class);
-            c.spec=_Select(character.spec, c.class);
-  
-    }
   }
+
+        function _Select(obj,param){
+            var t=param?obj[param]:obj;
+            return t[Math.floor(Math.random()*t.length)]; 
+        }
 
         function _Select(obj,param){
             var t=param?obj[param]:obj;
@@ -279,6 +279,13 @@
   }
 sendimg = img;
 
+  if(count==0)
+  {
+    class1 = "";
+    class2 = "";
+    class3 = "";
+    class4 = "";
+  }
   count++;
   if(count==1)
   { 
@@ -297,11 +304,8 @@ sendimg = img;
   }
   if(count==4)
   {
+    class4 = c.spec + " " +c.class
     currentclass = c.spec + " " +c.class;
-    class1 = "";
-    class2 = "";
-    class3 = "";
-    class4 = "";
     count = 0;     
   }
   if(count==5)
