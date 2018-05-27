@@ -106,12 +106,15 @@
             classtmp.innerHTML = "";
             var classtmp = document.getElementsByName("fourth_class")[0];
             classtmp.innerHTML = "";
-
+            
             var img = document.createElement("img");
             img.src = msg.icon;
             img.width = 300;
             img.height = 300;
             var x = document.getElementsByName("first")[0];
+            if(x.childNodes[0]){
+              x.removeChild(x.childNodes[0]);
+            }
             x.appendChild(img);
 
             var x = document.getElementsByName("second")[0];
