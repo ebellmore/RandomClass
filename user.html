@@ -15,10 +15,7 @@
   </head>
 <body style="background-color: #505050;color: white; ">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <ul id="messages"></ul>
-    <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
-    </form>
+
 
 
 
@@ -317,49 +314,12 @@ sendimg = img;
     count = 0;
   }
  
+  var socket = io();
+  socket.emit('chat message', {class: currentclass, race: currentrace, icon : sendimg.src});
 
-
-  // $(function () {
-  //       var socket = io();
-  //       $('form').submit(function(){
-  //         socket.emit('chat message', $('#m').val());
-  //         $('#m').val('');
-  //         return false;
-  //       });
-  //       socket.on('chat message', function(msg){
-  //         //alert(c.class);
-  //         $('#messages').append($('<li>').text(c.race));
-  //         var race = document.getElementsByName("second_race")[0];
-  //         race.innerHTML = c.race;
-  //       });
-  //     });
-
-
-    }
-})();
-
-
-</script>
-
-    <script>
-      
-      $(function () {
-        var count = 0;
-        var socket = io();
-        $('form').submit(function(){
-          socket.emit('chat message', {class: currentclass, race: currentrace, icon : sendimg.src});
-          //socket.emit('chat message', $(class2));
-          //socket.emit('chat message', $(class3));
-          //socket.emit('chat message', $(class4));
-         
-
-
-
-          $('#m').val('');
-          return false;
-        });
-        socket.on('chat message', function(msg){
-          count++;
+  socket.on('chat message', function(msg)
+  {
+          
           console.log(msg);
           
           if(count == 1)
@@ -389,6 +349,79 @@ sendimg = img;
             var race = document.getElementsByName("fourth_race")[0];
             race.innerHTML = msg.class;
           }
+  });
+
+
+  // $(function () {
+  //       var socket = io();
+  //       $('form').submit(function(){
+  //         socket.emit('chat message', $('#m').val());
+  //         $('#m').val('');
+  //         return false;
+  //       });
+  //       socket.on('chat message', function(msg){
+  //         //alert(c.class);
+  //         $('#messages').append($('<li>').text(c.race));
+  //         var race = document.getElementsByName("second_race")[0];
+  //         race.innerHTML = c.race;
+  //       });
+  //     });
+
+
+    }
+})();
+
+
+</script>
+
+    <script>
+      
+      // $(function () {
+      //   var count = 0;
+      //   var socket = io();
+      //   $('form').submit(function(){
+      //     socket.emit('chat message', {class: currentclass, race: currentrace, icon : sendimg.src});
+      //     //socket.emit('chat message', $(class2));
+      //     //socket.emit('chat message', $(class3));
+      //     //socket.emit('chat message', $(class4));
+         
+
+
+
+      //     $('#m').val('');
+      //     return false;
+      //   });
+        // socket.on('chat message', function(msg){
+        //   count++;
+        //   console.log(msg);
+          
+        //   if(count == 1)
+        //   {
+        //     //$('#messages').append($('<li>').text(msg.selector));
+        //     var race = document.getElementsByName("first_race")[0];
+        //     race.innerHTML = msg.class;
+        //   }
+
+        //   if(count == 2)
+        //   {
+        //     //$('#messages').append($('<li>').text(msg.selector));
+        //     var race = document.getElementsByName("second_race")[0];
+        //     race.innerHTML = msg.class;
+        //   }
+
+        //   if(count == 3)
+        //   {
+        //     //$('#messages').append($('<li>').text(msg.selector));
+        //     var race = document.getElementsByName("third_race")[0];
+        //     race.innerHTML = msg.class;
+        //   }
+
+        //   if(count == 4)
+        //   {
+        //     //$('#messages').append($('<li>').text(msg.selector));
+        //     var race = document.getElementsByName("fourth_race")[0];
+        //     race.innerHTML = msg.class;
+        //   }
         //alert(class1);
         
 
@@ -411,9 +444,9 @@ sendimg = img;
 // body.appendChild(button3);
 // body.appendChild(button4);
           
-        });
+       // });
 
-      });
+     // });
     </script>
 
   </body>
