@@ -25,32 +25,32 @@
 <p id="Output"></p>
 <div style="margin-left: 50px; margin-right: 50px;" >
 <div class="row">
-  <div class="col" name="first_race" style="margin-left:10%;text-align:center;border:1.5px solid white;font-size:30px; font-color: "white";"></div>
+  <div class="col" name="first_race" style="height:100px;margin-left:10%;text-align:center;border:1.5px solid white;font-size:30px; font-color: "white";"></div>
   <div class="col" name="second_race" style="text-align:center;border:1.5px solid white;font-size:30px;"></div>
   <div class="col" name="third_race" style="text-align:center;border:1.5px solid white;font-size:30px;"></div>
   <div class="col" name="fourth_race" style="margin-right:10%;text-align:center;border:1.5px solid white;font-size:30px;"></div>
 </div>
 
 <div class="row">
-  <div class="col" name="first" style="margin-left:10%;text-align:center;border:1.5px solid white;cursor: pointer;" onclick=""></div>
-  <div class="col" name="second"style="text-align:center;border:1.5px solid white;cursor: pointer;" onclick=""></div>
+  <div class="col" name="first" style="height:300px;margin-left:10%;text-align:center;border:1.5px solid white;cursor: pointer;" onclick=""></div>
+  <div class="col" name="second"style="text-align:center;border:1.5px solid white;cursor: pointer;" onclick="alert("voted for second")"></div>
   <div class="col" name="third" style="text-align:center;border:1.5px solid white;cursor: pointer;" onclick=""></div>
   <div class="col" name="fourth" style="margin-right:10%;text-align:center;border:1.5px solid white;cursor: pointer;" onclick=""></div>
 </div>
 
 <div class="row">
-  <div class="col" name="first_class" style="margin-left:10%;text-align:center;border:1.5px solid white;font-size:30px;"></div>
+  <div class="col" name="first_class" style="height:100px;margin-left:10%;text-align:center;border:1.5px solid white;font-size:30px;"></div>
   <div class="col" name="second_class" style="text-align:center;border:1.5px solid white;font-size:30px;"></div>
   <div class="col" name="third_class" style="text-align:center;border:1.5px solid white;font-size:30px;"></div>
   <div class="col" name="fourth_class" style="margin-right:10%;text-align:center;border:1.5px solid white;font-size:30px;"></div>
 </div>
 
-<!-- <div class="row">
-  <div class="col" name="first_score" style="margin-left:20%;text-align:center;border:1.5px solid white;font-size:40px;"></div>
+ <div class="row">
+  <div class="col" name="first_score" style="height:50px;margin-left:10%;text-align:center;border:1.5px solid white;font-size:40px;"></div>
   <div class="col" name="second_score" style="text-align:center;border:1.5px solid white;font-size:40px;"></div>
   <div class="col" name="third_score" style="text-align:center;border:1.5px solid white;font-size:40px;"></div>
-  <div class="col" name="fourth_score" style="margin-right:20%;text-align:center;border:1.5px solid white;font-size:40px;"></div>
-</div> -->
+  <div class="col" name="fourth_score" style="margin-right:10%;text-align:center;border:1.5px solid white;font-size:40px;"></div>
+</div> 
 
 </div>
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
@@ -71,7 +71,7 @@
         var count = 0;
         var socket = io();
         $('form').submit(function(){
-          socket.emit('chat message', $(class1));
+          //socket.emit('chat message', $(class1));
           //socket.emit('chat message', $(class2));
           //socket.emit('chat message', $(class3));
           //socket.emit('chat message', $(class4));
@@ -90,34 +90,81 @@
           {
             
             var race = document.getElementsByName("first_race")[0];
-            race.innerHTML = msg.selector;
+            race.innerHTML = msg.race;
             var race = document.getElementsByName("second_race")[0];
             race.innerHTML = "";
             var race = document.getElementsByName("third_race")[0];
             race.innerHTML = "";
             var race = document.getElementsByName("fourth_race")[0];
             race.innerHTML = "";
+
+            var classtmp = document.getElementsByName("first_class")[0];
+            classtmp.innerHTML = msg.class;
+            var classtmp = document.getElementsByName("second_class")[0];
+            classtmp.innerHTML = "";
+            var classtmp = document.getElementsByName("third_class")[0];
+            classtmp.innerHTML = "";
+            var classtmp = document.getElementsByName("fourth_class")[0];
+            classtmp.innerHTML = "";
+
+            var img = document.createElement("img");
+            img.src = msg.icon;
+            img.width = 300;
+            img.height = 300;
+            var x = document.getElementsByName("first")[0];
+            x.appendChild(img);
+
+
+
           }
 
           if(count == 2)
           {
             
             var race = document.getElementsByName("second_race")[0];
-            race.innerHTML = msg.selector;
+            race.innerHTML = msg.race;
+            var classtmp = document.getElementsByName("second_class")[0];
+            classtmp.innerHTML = msg.class;
+
+            var img = document.createElement("img");
+            img.src = msg.icon;
+            img.width = 300;
+            img.height = 300;
+            var x = document.getElementsByName("second")[0];
+            x.appendChild(img);
           }
 
           if(count == 3)
           {
             
             var race = document.getElementsByName("third_race")[0];
-            race.innerHTML = msg.selector;
+            race.innerHTML = msg.race;
+            var classtmp = document.getElementsByName("third_class")[0];
+            classtmp.innerHTML = msg.class;
+
+            var img = document.createElement("img");
+            img.src = msg.icon;
+            img.width = 300;
+            img.height = 300;
+            var x = document.getElementsByName("third")[0];
+            x.appendChild(img);
           }
 
           if(count == 4)
           {
            
             var race = document.getElementsByName("fourth_race")[0];
-            race.innerHTML = msg.selector;
+            race.innerHTML = msg.race;
+            var classtmp = document.getElementsByName("fourth_class")[0];
+            classtmp.innerHTML = msg.class;
+
+            var img = document.createElement("img");
+            img.src = msg.icon;
+            img.width = 300;
+            img.height = 300;
+            var x = document.getElementsByName("fourth")[0];
+            x.appendChild(img);
+
             count = 0;
           }
         //alert(class1);

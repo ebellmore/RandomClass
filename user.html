@@ -82,8 +82,11 @@
   var class2 = "";
   var class3 = "";
   var class4 = "";
+  var currentclass="";
+  var currentrace ="";
   var survivalAllowance = 0;
   var meleeAllowance = 0;
+  var sendimg = document.createElement("img");
 (function(){
     function gId(s){return document.getElementById(s);}
     var character={
@@ -168,23 +171,137 @@
         }
         
   gId("Output").innerHTML=c.race+" "+c.spec+" "+c.class;
+  currentrace = c.race;
+
+  var img = document.createElement("img");
+  if(c.class == "Death Knight")
+  {
+    
+        img.src = "https://vignette.wikia.nocookie.net/wrathgate/images/0/0e/Deathknighticon.png/revision/latest?cb=20141215001715";
+    img.height = 300;
+    img.width = 300;
+  
+  }
+  if(c.class == "Demon Hunter")
+  {
+    
+        img.src = "http://media.blizzard.com/wow/legion-6a153ad2/images/metamorphosis-icon.png";
+    img.height = 278;
+    img.width = 278;
+    
+  
+  }
+  if(c.class == "Druid")
+  {
+    
+        img.src = "https://vignette.wikia.nocookie.net/wrathgate/images/c/cd/Druidicon.png/revision/latest?cb=20141215001213";
+    img.height = 300;
+    img.width = 300;
+    
+  
+  }
+  if(c.class == "Hunter")
+  {
+    
+        img.src = "http://media-hearth.cursecdn.com/attachments/0/150/hunter_4.png";
+    img.height = 300;
+    img.width = 300;
+    
+  
+  }
+  if(c.class == "Mage")
+  {
+    
+        img.src = "http://media-hearth.cursecdn.com/attachments/0/151/mage_13.png";
+    img.height = 300;
+    img.width = 300;
+    
+  
+  }
+  if(c.class == "Monk")
+  {
+    
+        img.src = "https://www.exiledpower.com/dist/img/classicons/monk_icon.png";
+    img.height = 300;
+    img.width = 300;
+    
+  
+  }
+  if(c.class == "Paladin")
+  {
+    
+        img.src = "https://vignette.wikia.nocookie.net/wrathgate/images/d/d3/Paladinicon.png/revision/latest?cb=20141215000501";
+    img.height = 300;
+    img.width = 300;
+    
+  
+  }
+  if(c.class == "Priest")
+  {
+    
+        img.src = "http://media-hearth.cursecdn.com/attachments/0/153/priest_12.png";
+    img.height = 300;
+    img.width = 300;
+    
+  
+  }
+  if(c.class == "Rogue")
+  {
+    
+        img.src = "http://media-hearth.cursecdn.com/attachments/0/154/rogue_8.png";
+    img.height = 300;
+    img.width = 300;
+    
+  
+  }
+  if(c.class == "Shaman")
+  {
+    
+        img.src = "http://media-hearth.cursecdn.com/attachments/0/155/shaman_5.png";
+    img.height = 300;
+    img.width = 300;
+    
+  
+  }
+  if(c.class == "Warlock")
+  {
+    
+        img.src = "http://media-hearth.cursecdn.com/attachments/0/156/warlock_21.png";
+    img.height = 300;
+    img.width = 300;
+  
+  }
+  if(c.class == "Warrior")
+  {
+    
+        img.src = "http://media-hearth.cursecdn.com/attachments/0/157/warrior_11.png";
+    img.height = 300;
+    img.width = 300;
+    
+  
+  }
+sendimg = img;
 
   count++;
   if(count==1)
   { 
     class1 = c.spec + " " +c.class;
+    currentclass = class1;
   }
   if(count==2)
   { 
     class2 = c.spec + " " +c.class;
+    currentclass = class2;
   }
   if(count==3)
   { 
-    class3 = c.spec + " " +c.class;  
+    class3 = c.spec + " " +c.class;
+    currentclass = class3;  
   }
   if(count==4)
   {
-    class4 = c.spec + " " +c.class;      
+    class4 = c.spec + " " +c.class;
+    currentclass = class4;      
   }
   if(count==5)
   {
@@ -193,7 +310,7 @@
     class3 = "";
     class4 = "";
   }
-  class1 = c.spec + " " +c.class;
+ 
 
 
   // $(function () {
@@ -224,7 +341,7 @@
         var count = 0;
         var socket = io();
         $('form').submit(function(){
-          socket.emit('chat message', $(class1));
+          socket.emit('chat message', {class: currentclass, race: currentrace, icon : sendimg.src});
           //socket.emit('chat message', $(class2));
           //socket.emit('chat message', $(class3));
           //socket.emit('chat message', $(class4));
@@ -241,30 +358,30 @@
           
           if(count == 1)
           {
-            $('#messages').append($('<li>').text(msg.selector));
+            //$('#messages').append($('<li>').text(msg.selector));
             var race = document.getElementsByName("first_race")[0];
-            race.innerHTML = msg.selector;
+            race.innerHTML = msg.class;
           }
 
           if(count == 2)
           {
-            $('#messages').append($('<li>').text(msg.selector));
+            //$('#messages').append($('<li>').text(msg.selector));
             var race = document.getElementsByName("second_race")[0];
-            race.innerHTML = msg.selector;
+            race.innerHTML = msg.class;
           }
 
           if(count == 3)
           {
-            $('#messages').append($('<li>').text(msg.selector));
+            //$('#messages').append($('<li>').text(msg.selector));
             var race = document.getElementsByName("third_race")[0];
-            race.innerHTML = msg.selector;
+            race.innerHTML = msg.class;
           }
 
           if(count == 4)
           {
-            $('#messages').append($('<li>').text(msg.selector));
+            //$('#messages').append($('<li>').text(msg.selector));
             var race = document.getElementsByName("fourth_race")[0];
-            race.innerHTML = msg.selector;
+            race.innerHTML = msg.class;
           }
         //alert(class1);
         
