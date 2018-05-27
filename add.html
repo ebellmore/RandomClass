@@ -32,7 +32,7 @@
 </div>
 
 <div class="row">
-  <div class="col" name="first" style="height:310px;margin-left:10%;text-align:center;border:1.5px solid white;cursor: pointer;" onclick=""></div>
+  <div class="col" name="first" style="height:305px;margin-left:10%;text-align:center;border:1.5px solid white;cursor: pointer;" onclick=""></div>
   <div class="col" name="second"style="text-align:center;border:1.5px solid white;cursor: pointer;" onclick=""></div>
   <div class="col" name="third" style="text-align:center;border:1.5px solid white;cursor: pointer;" onclick=""></div>
   <div class="col" name="fourth" style="margin-right:10%;text-align:center;border:1.5px solid white;cursor: pointer;" onclick=""></div>
@@ -109,8 +109,17 @@
             
             var img = document.createElement("img");
             img.src = msg.icon;
-            img.width = 300;
-            img.height = 300;
+            if(msg.icon == "http://media.blizzard.com/wow/legion-6a153ad2/images/metamorphosis-icon.png")
+            {
+                img.height = 278;
+                img.width = 278;
+            }
+            else
+            {
+              img.width = 300;
+              img.height = 300;
+            }
+                    
             var x = document.getElementsByName("first")[0];
             if(x.childNodes[0]){
               x.removeChild(x.childNodes[0]);
@@ -136,8 +145,18 @@
 
             var img = document.createElement("img");
             img.src = msg.icon;
-            img.width = 300;
-            img.height = 300;
+
+            if(msg.icon == "http://media.blizzard.com/wow/legion-6a153ad2/images/metamorphosis-icon.png")
+            {
+                img.height = 278;
+                img.width = 278;
+            }
+            else
+            {
+              img.width = 300;
+              img.height = 300;
+            }
+
             var x = document.getElementsByName("second")[0];
             x.appendChild(img);
           }
@@ -152,8 +171,18 @@
 
             var img = document.createElement("img");
             img.src = msg.icon;
-            img.width = 300;
-            img.height = 300;
+            
+            if(msg.icon == "http://media.blizzard.com/wow/legion-6a153ad2/images/metamorphosis-icon.png")
+            {
+                img.height = 278;
+                img.width = 278;
+            }
+            else
+            {
+              img.width = 300;
+              img.height = 300;
+            }
+
             var x = document.getElementsByName("third")[0];
             x.appendChild(img);
           }
@@ -167,9 +196,19 @@
             classtmp.innerHTML = msg.class;
 
             var img = document.createElement("img");
+            
             img.src = msg.icon;
-            img.width = 300;
-            img.height = 300;
+            if(msg.icon == "http://media.blizzard.com/wow/legion-6a153ad2/images/metamorphosis-icon.png")
+            {
+                img.height = 278;
+                img.width = 278;
+            }
+            else
+            {
+              img.width = 300;
+              img.height = 300;
+            }
+
             var x = document.getElementsByName("fourth")[0];
             x.appendChild(img);
 
