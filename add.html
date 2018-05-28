@@ -73,26 +73,33 @@
     var vote3 = 0;
     var vote4 = 0;
     var socket = io();
+    var voted = 0;
 
     socket.on('inc vote', function(msg){
       //alert("test");
       console.log(msg);
     if(msg == 1){
-    vote1++;
-    document.getElementsByName("first_score")[0].innerHTML = vote1;
+    vote1++; 
     }
     if(msg == 2){
       vote2++;
-      document.getElementsByName("second_score")[0].innerHTML = vote2;
+      
     }
     if(msg == 3){
       vote3++;
-      document.getElementsByName("third_score")[0].innerHTML = vote3;
+      
     }
     if(msg == 4){
       vote4++;
-      document.getElementsByName("fourth_score")[0].innerHTML = vote4;
+      
     }
+    if(voted > 0){
+        document.getElementsByName("first_score")[0].innerHTML = vote1;
+        document.getElementsByName("second_score")[0].innerHTML = vote2;
+        document.getElementsByName("third_score")[0].innerHTML = vote3;
+        document.getElementsByName("fourth_score")[0].innerHTML = vote4;
+      } 
+
       });
       
       $(function () {
@@ -116,10 +123,71 @@
           
           if(count == 1)
           {
-            
+            voted = 0;
             if(vote1 > 0 || vote2 > 0 || vote3 > 0 || vote4 > 0 )
             {
               var winner = Math.max(vote1,vote2,vote3,vote4);
+              if(vote1 == vote2 && vote1 == winner){
+                var coin = Math.floor(Math.random() * 100) + 1
+                if(coin > 50){
+                  vote2++;
+                }
+                else{
+                  vote1++;
+                }
+              }
+
+              if(vote1 == vote3 && vote1 == winner){
+                var coin = Math.floor(Math.random() * 100) + 1
+                if(coin > 50){
+                  vote3++;
+                }
+                else{
+                  vote1++;
+                }
+              }
+
+              if(vote1 == vote4 && vote1 == winner){
+                var coin = Math.floor(Math.random() * 100) + 1
+                if(coin > 50){
+                  vote4++;
+                }
+                else{
+                  vote1++;
+                }
+              }
+
+              if(vote2 == vote3 && vote2 == winner){
+                var coin = Math.floor(Math.random() * 100) + 1
+                if(coin > 50){
+                  vote3++;
+                }
+                else{
+                  vote2++;
+                }
+              }
+
+              if(vote2 == vote4 && vote2 == winner){
+                var coin = Math.floor(Math.random() * 100) + 1
+                if(coin > 50){
+                  vote4++;
+                }
+                else{
+                  vote2++;
+                }
+              }
+
+              if(vote3 == vote4 && vote3 == winner){
+                var coin = Math.floor(Math.random() * 100) + 1
+                if(coin > 50){
+                  vote4++;
+                }
+                else{
+                  vote3++;
+                }
+              }
+
+
               if( winner == vote1)
               {
                 var winningclass = document.getElementsByName("first_class")[0].innerHTML;
@@ -603,6 +671,7 @@
 
   function vote(num)
   {
+    voted = 1;
     //var socket2 = io();
     //alert("sneding");
     socket.emit('vote', num);
