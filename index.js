@@ -23,6 +23,11 @@ io.on('connection', function(socket){
     io.emit('chat message', msg);
     console.log(msg);
   });
+  socket.on('vote', function(msg){
+  	socket.emit('inc vote', msg);
+  	//socket.emit('vote', msg);
+  	console.log(msg);
+  });
 });
     
 

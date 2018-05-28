@@ -32,10 +32,10 @@
 </div>
 
 <div class="row">
-  <div class="col" name="first" style="height:305px;margin-left:10%;text-align:center;border:1.5px solid #171717;cursor: pointer;" onclick=""></div>
-  <div class="col" name="second"style="text-align:center;border:1.5px solid #171717;cursor: pointer;" onclick=""></div>
-  <div class="col" name="third" style="text-align:center;border:1.5px solid #171717;cursor: pointer;" onclick=""></div>
-  <div class="col" name="fourth" style="margin-right:10%;text-align:center;border:1.5px solid #171717;cursor: pointer;" onclick=""></div>
+  <div class="col" name="first" style="height:305px;margin-left:10%;text-align:center;border:1.5px solid #171717;cursor: pointer;" ></div>
+  <div class="col" name="second"style="text-align:center;border:1.5px solid #171717;cursor: pointer;" ></div>
+  <div class="col" name="third" style="text-align:center;border:1.5px solid #171717;cursor: pointer;" ></div>
+  <div class="col" name="fourth" style="margin-right:10%;text-align:center;border:1.5px solid #171717;cursor: pointer;" ></div>
 </div>
 
 <div class="row">
@@ -46,7 +46,7 @@
 </div>
 
  <div class="row">
-  <div class="col" name="first_score" style="height:50px;margin-left:10%;text-align:center;border:1.5px solid #171717;font-size:40px;"></div>
+  <div class="col" name="first_score" style="height:75px;margin-left:10%;text-align:center;border:1.5px solid #171717;font-size:40px;"></div>
   <div class="col" name="second_score" style="text-align:center;border:1.5px solid #171717;font-size:40px;"></div>
   <div class="col" name="third_score" style="text-align:center;border:1.5px solid #171717;font-size:40px;"></div>
   <div class="col" name="fourth_score" style="margin-right:10%;text-align:center;border:1.5px solid #171717;font-size:40px;"></div>
@@ -65,11 +65,37 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 
-    <script>
+
+
+  <script>
+    var vote1 = 0;
+    var vote2 = 0;
+    var vote3 = 0;
+    var vote4 = 0;
+    var socket = io();
+
+    socket.on('inc vote', function(msg){
+    if(msg == 1){
+    vote1++;
+    document.getElementsByName("first_score")[0].innerHTML = vote1;
+    }
+    if(msg == 2){
+      vote2++;
+      document.getElementsByName("second_score")[0].innerHTML = vote2;
+    }
+    if(msg == 3){
+      vote3++;
+      document.getElementsByName("third_score")[0].innerHTML = vote3;
+    }
+    if(msg == 4){
+      vote4++;
+      document.getElementsByName("fourth_score")[0].innerHTML = vote4;
+    }
+      })
       
       $(function () {
         var count = 0;
-        var socket = io();
+        
         $('form').submit(function(){
           //socket.emit('chat message', $(class1));
           //socket.emit('chat message', $(class2));
@@ -89,7 +115,28 @@
           if(count == 1)
           {
             
+            if(vote1 > 0 || vote2 > 0 || vote3 > 0 || vote4 > 0 )
+            {
+              var winner = Math.max(vote1,vote2,vote3,vote4);
+              if( winner == vote1)
+              {
+                var winningclass = document.getElementsByName("first_class")[0].innerHTML;
+              }
+              if( winner == vote2)
+              {
+                var winningclass = document.getElementsByName("second_class")[0].innerHTML;
+              }
+              if( winner == vote3)
+              {
+                var winningclass = document.getElementsByName("third_class")[0].innerHTML;
+              }
+              if( winner == vote4)
+              { 
+                var winningclass = document.getElementsByName("fourth_class")[0].innerHTML;
+              }
 
+              alert(winningclass);
+            }
             if(msg.class.includes("Death Knight")){             
               document.getElementsByName("first_race")[0].style.backgroundColor = "#C41F3B";
               document.getElementsByName("first_class")[0].style.backgroundColor = "#C41F3B";
@@ -176,7 +223,16 @@
               document.getElementsByName("fourth_class")[0].style.backgroundColor = "#505050";
               document.getElementsByName("fourth")[0].style.backgroundColor = "#505050";
 
+              vote1 = "";
+              vote2 = "";
+              vote3 = "";
+              vote4 = "";
 
+
+              document.getElementsByName("first_score")[0].innerHTML = vote1;
+              document.getElementsByName("second_score")[0].innerHTML = vote2;
+              document.getElementsByName("third_score")[0].innerHTML = vote3;
+              document.getElementsByName("fourth_score")[0].innerHTML = vote4;
 
 
             var race = document.getElementsByName("first_race")[0];
@@ -531,11 +587,63 @@
             x.appendChild(img);
 
             count = 0;
+
+            document.getElementsByName("first")[0].setAttribute('onclick','vote(1)');
+            document.getElementsByName("second")[0].setAttribute('onclick','vote(2)');
+            document.getElementsByName("third")[0].setAttribute('onclick','vote(3)');
+            document.getElementsByName("fourth")[0].setAttribute('onclick','vote(4)');
+
           }
           
         });
 
       });
+
+  function vote(num)
+  {
+    //var socket2 = io();
+    //alert("sneding");
+    socket.emit('vote', num);
+
+   
+    
+    
+    document.getElementsByName("first")[0].onclick = "";
+    document.getElementsByName("second")[0].onclick = "";
+    document.getElementsByName("third")[0].onclick = "";
+    document.getElementsByName("fourth")[0].onclick = "";
+    
+    // socket.on('inc vote', function(msg){
+      
+    //   console.log(num);
+    //   alert(num);
+
+    if(num == 1){
+      vote1++;
+      document.getElementsByName("first_score")[0].innerHTML = vote1;
+
+    }
+    if(num == 2){
+      vote2++;
+      document.getElementsByName("second_score")[0].innerHTML = vote2;
+    }
+    if(num == 3){
+      vote3++;
+      document.getElementsByName("third_score")[0].innerHTML = vote3;
+    }
+    if(num == 4){
+      vote4++;
+      document.getElementsByName("fourth_score")[0].innerHTML = vote4;
+    }
+
+    // });
+
+    
+
+    
+  }
+
+
     </script>
 
   </body>
