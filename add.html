@@ -13,7 +13,7 @@
       #messages li:nth-child(odd) { background: #eee; }
     </style>
   </head>
-<body style="background-color: #505050;color: white; ">
+<body style="background-color: #505050;color: black; ">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
 
@@ -25,31 +25,31 @@
 <p id="Output"></p>
 <div style="margin-left: 50px; margin-right: 50px;" >
 <div class="row">
-  <div class="col" name="first_race" style="height:100px;margin-left:10%;text-align:center;border:1.5px solid white;font-size:30px; font-color: "white";"></div>
-  <div class="col" name="second_race" style="text-align:center;border:1.5px solid white;font-size:30px;"></div>
-  <div class="col" name="third_race" style="text-align:center;border:1.5px solid white;font-size:30px;"></div>
-  <div class="col" name="fourth_race" style="margin-right:10%;text-align:center;border:1.5px solid white;font-size:30px;"></div>
+  <div class="col" name="first_race" style="height:100px;margin-left:10%;text-align:center;border:1.5px solid #171717;font-size:30px; font-color: "white";"></div>
+  <div class="col" name="second_race" style="text-align:center;border:1.5px solid #171717;font-size:30px;"></div>
+  <div class="col" name="third_race" style="text-align:center;border:1.5px solid #171717;font-size:30px;"></div>
+  <div class="col" name="fourth_race" style="margin-right:10%;text-align:center;border:1.5px solid #171717;font-size:30px;"></div>
 </div>
 
 <div class="row">
-  <div class="col" name="first" style="height:305px;margin-left:10%;text-align:center;border:1.5px solid white;cursor: pointer;" onclick=""></div>
-  <div class="col" name="second"style="text-align:center;border:1.5px solid white;cursor: pointer;" onclick=""></div>
-  <div class="col" name="third" style="text-align:center;border:1.5px solid white;cursor: pointer;" onclick=""></div>
-  <div class="col" name="fourth" style="margin-right:10%;text-align:center;border:1.5px solid white;cursor: pointer;" onclick=""></div>
+  <div class="col" name="first" style="height:305px;margin-left:10%;text-align:center;border:1.5px solid #171717;cursor: pointer;" onclick=""></div>
+  <div class="col" name="second"style="text-align:center;border:1.5px solid #171717;cursor: pointer;" onclick=""></div>
+  <div class="col" name="third" style="text-align:center;border:1.5px solid #171717;cursor: pointer;" onclick=""></div>
+  <div class="col" name="fourth" style="margin-right:10%;text-align:center;border:1.5px solid #171717;cursor: pointer;" onclick=""></div>
 </div>
 
 <div class="row">
-  <div class="col" name="first_class" style="height:100px;margin-left:10%;text-align:center;border:1.5px solid white;font-size:30px;"></div>
-  <div class="col" name="second_class" style="text-align:center;border:1.5px solid white;font-size:30px;"></div>
-  <div class="col" name="third_class" style="text-align:center;border:1.5px solid white;font-size:30px;"></div>
-  <div class="col" name="fourth_class" style="margin-right:10%;text-align:center;border:1.5px solid white;font-size:30px;"></div>
+  <div class="col" name="first_class" style="height:100px;margin-left:10%;text-align:center;border:1.5px solid #171717;font-size:30px;"></div>
+  <div class="col" name="second_class" style="text-align:center;border:1.5px solid #171717;font-size:30px;"></div>
+  <div class="col" name="third_class" style="text-align:center;border:1.5px solid #171717;font-size:30px;"></div>
+  <div class="col" name="fourth_class" style="margin-right:10%;text-align:center;border:1.5px solid #171717;font-size:30px;"></div>
 </div>
 
  <div class="row">
-  <div class="col" name="first_score" style="height:50px;margin-left:10%;text-align:center;border:1.5px solid white;font-size:40px;"></div>
-  <div class="col" name="second_score" style="text-align:center;border:1.5px solid white;font-size:40px;"></div>
-  <div class="col" name="third_score" style="text-align:center;border:1.5px solid white;font-size:40px;"></div>
-  <div class="col" name="fourth_score" style="margin-right:10%;text-align:center;border:1.5px solid white;font-size:40px;"></div>
+  <div class="col" name="first_score" style="height:50px;margin-left:10%;text-align:center;border:1.5px solid #171717;font-size:40px;"></div>
+  <div class="col" name="second_score" style="text-align:center;border:1.5px solid #171717;font-size:40px;"></div>
+  <div class="col" name="third_score" style="text-align:center;border:1.5px solid #171717;font-size:40px;"></div>
+  <div class="col" name="fourth_score" style="margin-right:10%;text-align:center;border:1.5px solid #171717;font-size:40px;"></div>
 </div> 
 
 </div>
@@ -89,6 +89,96 @@
           if(count == 1)
           {
             
+
+            if(msg.class.includes("Death Knight")){             
+              document.getElementsByName("first_race")[0].style.backgroundColor = "#C41F3B";
+              document.getElementsByName("first_class")[0].style.backgroundColor = "#C41F3B";
+              document.getElementsByName("first")[0].style.backgroundColor = "#C41F3B";
+              document.getElementsByName("first_score")[0].style.backgroundColor = "#C41F3B";
+            }
+            if(msg.class.includes("Druid")){
+              document.getElementsByName("first_race")[0].style.backgroundColor = "#FF7D0A";
+              document.getElementsByName("first_class")[0].style.backgroundColor = "#FF7D0A";
+              document.getElementsByName("first")[0].style.backgroundColor = "#FF7D0A";
+              document.getElementsByName("first_score")[0].style.backgroundColor = "#FF7D0A";
+            }
+            if(msg.class.includes("Hunter")){
+              document.getElementsByName("first_race")[0].style.backgroundColor = "#ABD473";
+              document.getElementsByName("first_class")[0].style.backgroundColor = "#ABD473";
+              document.getElementsByName("first")[0].style.backgroundColor = "#ABD473";
+              document.getElementsByName("first_score")[0].style.backgroundColor = "#ABD473";
+            }
+            if(msg.class.includes("Demon")){
+              document.getElementsByName("first_race")[0].style.backgroundColor = "#A330C9";
+              document.getElementsByName("first_class")[0].style.backgroundColor = "#A330C9";
+              document.getElementsByName("first")[0].style.backgroundColor = "#A330C9";
+              document.getElementsByName("first_score")[0].style.backgroundColor = "#A330C9";
+            }
+            if(msg.class.includes("Mage")){
+              document.getElementsByName("first_race")[0].style.backgroundColor = "#69CCF0";
+              document.getElementsByName("first_class")[0].style.backgroundColor = "#69CCF0";
+              document.getElementsByName("first")[0].style.backgroundColor = "#69CCF0";
+              document.getElementsByName("first_score")[0].style.backgroundColor = "#69CCF0";
+            }
+            if(msg.class.includes("Monk")){
+              document.getElementsByName("first_race")[0].style.backgroundColor = "#00FF96";
+              document.getElementsByName("first_class")[0].style.backgroundColor = "#00FF96";
+              document.getElementsByName("first")[0].style.backgroundColor = "#00FF96";
+              document.getElementsByName("first_score")[0].style.backgroundColor = "#00FF96";
+            }
+            if(msg.class.includes("Paladin")){
+              document.getElementsByName("first_race")[0].style.backgroundColor = "#F58CBA";
+              document.getElementsByName("first_class")[0].style.backgroundColor = "#F58CBA";
+              document.getElementsByName("first")[0].style.backgroundColor = "#F58CBA";
+              document.getElementsByName("first_score")[0].style.backgroundColor = "#F58CBA";
+            }
+            if(msg.class.includes("Priest")){
+              document.getElementsByName("first_race")[0].style.backgroundColor = "#FFFFFF";
+              document.getElementsByName("first_class")[0].style.backgroundColor = "#FFFFFF";
+              document.getElementsByName("first")[0].style.backgroundColor = "#FFFFFF";
+              document.getElementsByName("first_score")[0].style.backgroundColor = "#FFFFFF";
+            }
+            if(msg.class.includes("Rogue")){
+              document.getElementsByName("first_race")[0].style.backgroundColor = "#FFF569";
+              document.getElementsByName("first_class")[0].style.backgroundColor = "#FFF569";
+              document.getElementsByName("first")[0].style.backgroundColor = "#FFF569";
+              document.getElementsByName("first_score")[0].style.backgroundColor = "#FFF569";
+            }
+            if(msg.class.includes("Shaman")){
+              document.getElementsByName("first_race")[0].style.backgroundColor = "#0070DE";
+              document.getElementsByName("first_class")[0].style.backgroundColor = "#0070DE";
+              document.getElementsByName("first")[0].style.backgroundColor = "#0070DE";
+              document.getElementsByName("first_score")[0].style.backgroundColor = "#0070DE";
+            }
+            if(msg.class.includes("Warlock")){
+              document.getElementsByName("first_race")[0].style.backgroundColor = "#9482C9";
+              document.getElementsByName("first_class")[0].style.backgroundColor = "#9482C9";
+              document.getElementsByName("first")[0].style.backgroundColor = "#9482C9";
+              document.getElementsByName("first_score")[0].style.backgroundColor = "#9482C9";
+            }
+            if(msg.class.includes("Warrior")){
+              document.getElementsByName("first_race")[0].style.backgroundColor = "#C79C6E";
+              document.getElementsByName("first_class")[0].style.backgroundColor = "#C79C6E";
+              document.getElementsByName("first")[0].style.backgroundColor = "#C79C6E";
+              document.getElementsByName("first_score")[0].style.backgroundColor = "#C79C6E";
+            }
+
+              document.getElementsByName("second_score")[0].style.backgroundColor = "#505050";
+              document.getElementsByName("second_race")[0].style.backgroundColor = "#505050";
+              document.getElementsByName("second_class")[0].style.backgroundColor = "#505050";
+              document.getElementsByName("second")[0].style.backgroundColor = "#505050";
+              document.getElementsByName("third_score")[0].style.backgroundColor = "#505050";
+              document.getElementsByName("third_race")[0].style.backgroundColor = "#505050";
+              document.getElementsByName("third_class")[0].style.backgroundColor = "#505050";
+              document.getElementsByName("third")[0].style.backgroundColor = "#505050";
+              document.getElementsByName("fourth_score")[0].style.backgroundColor = "#505050";
+              document.getElementsByName("fourth_race")[0].style.backgroundColor = "#505050";
+              document.getElementsByName("fourth_class")[0].style.backgroundColor = "#505050";
+              document.getElementsByName("fourth")[0].style.backgroundColor = "#505050";
+
+
+
+
             var race = document.getElementsByName("first_race")[0];
             race.innerHTML = msg.race;
             var race = document.getElementsByName("second_race")[0];
@@ -146,6 +236,83 @@
             var img = document.createElement("img");
             img.src = msg.icon;
 
+
+
+            if(msg.class.includes("Death Knight")){             
+              document.getElementsByName("second_race")[0].style.backgroundColor = "#C41F3B";
+              document.getElementsByName("second_class")[0].style.backgroundColor = "#C41F3B";
+              document.getElementsByName("second")[0].style.backgroundColor = "#C41F3B";
+              document.getElementsByName("second_score")[0].style.backgroundColor = "#C41F3B";
+            }
+            if(msg.class.includes("Druid")){
+              document.getElementsByName("second_race")[0].style.backgroundColor = "#FF7D0A";
+              document.getElementsByName("second_class")[0].style.backgroundColor = "#FF7D0A";
+              document.getElementsByName("second")[0].style.backgroundColor = "#FF7D0A";
+              document.getElementsByName("second_score")[0].style.backgroundColor = "#FF7D0A";
+            }
+            if(msg.class.includes("Hunter")){
+              document.getElementsByName("second_race")[0].style.backgroundColor = "#ABD473";
+              document.getElementsByName("second_class")[0].style.backgroundColor = "#ABD473";
+              document.getElementsByName("second")[0].style.backgroundColor = "#ABD473";
+              document.getElementsByName("second_score")[0].style.backgroundColor = "#ABD473";
+            }            
+            if(msg.class.includes("Demon")){
+              document.getElementsByName("second_race")[0].style.backgroundColor = "#A330C9";
+              document.getElementsByName("second_class")[0].style.backgroundColor = "#A330C9";
+              document.getElementsByName("second")[0].style.backgroundColor = "#A330C9";
+              document.getElementsByName("second_score")[0].style.backgroundColor = "#A330C9";
+            }
+            if(msg.class.includes("Mage")){
+              document.getElementsByName("second_race")[0].style.backgroundColor = "#69CCF0";
+              document.getElementsByName("second_class")[0].style.backgroundColor = "#69CCF0";
+              document.getElementsByName("second")[0].style.backgroundColor = "#69CCF0";
+              document.getElementsByName("second_score")[0].style.backgroundColor = "#69CCF0";
+            }
+            if(msg.class.includes("Monk")){
+              document.getElementsByName("second_race")[0].style.backgroundColor = "#00FF96";
+              document.getElementsByName("second_class")[0].style.backgroundColor = "#00FF96";
+              document.getElementsByName("second")[0].style.backgroundColor = "#00FF96";
+              document.getElementsByName("second_score")[0].style.backgroundColor = "#00FF96";
+            }
+            if(msg.class.includes("Paladin")){
+              document.getElementsByName("second_race")[0].style.backgroundColor = "#F58CBA";
+              document.getElementsByName("second_class")[0].style.backgroundColor = "#F58CBA";
+              document.getElementsByName("second")[0].style.backgroundColor = "#F58CBA";
+              document.getElementsByName("second_score")[0].style.backgroundColor = "#F58CBA";
+            }
+            if(msg.class.includes("Priest")){
+              document.getElementsByName("second_race")[0].style.backgroundColor = "#FFFFFF";
+              document.getElementsByName("second_class")[0].style.backgroundColor = "#FFFFFF";
+              document.getElementsByName("second")[0].style.backgroundColor = "#FFFFFF";
+              document.getElementsByName("second_score")[0].style.backgroundColor = "#FFFFFF";
+            }
+            if(msg.class.includes("Rogue")){
+              document.getElementsByName("second_race")[0].style.backgroundColor = "#FFF569";
+              document.getElementsByName("second_class")[0].style.backgroundColor = "#FFF569";
+              document.getElementsByName("second")[0].style.backgroundColor = "#FFF569";
+              document.getElementsByName("second_score")[0].style.backgroundColor = "#FFF569";
+            }
+            if(msg.class.includes("Shaman")){
+              document.getElementsByName("second_race")[0].style.backgroundColor = "#0070DE";
+              document.getElementsByName("second_class")[0].style.backgroundColor = "#0070DE";
+              document.getElementsByName("second")[0].style.backgroundColor = "#0070DE";
+              document.getElementsByName("second_score")[0].style.backgroundColor = "#0070DE";
+            }
+            if(msg.class.includes("Warlock")){
+              document.getElementsByName("second_race")[0].style.backgroundColor = "#9482C9";
+              document.getElementsByName("second_class")[0].style.backgroundColor = "#9482C9";
+              document.getElementsByName("second")[0].style.backgroundColor = "#9482C9";
+              document.getElementsByName("second_score")[0].style.backgroundColor = "#9482C9";
+            }
+            if(msg.class.includes("Warrior")){
+              document.getElementsByName("second_race")[0].style.backgroundColor = "#C79C6E";
+              document.getElementsByName("second_class")[0].style.backgroundColor = "#C79C6E";
+              document.getElementsByName("second")[0].style.backgroundColor = "#C79C6E";
+              document.getElementsByName("second_score")[0].style.backgroundColor = "#C79C6E";
+            }
+
+
+
             if(msg.icon == "http://media.blizzard.com/wow/legion-6a153ad2/images/metamorphosis-icon.png")
             {
                 img.height = 278;
@@ -172,6 +339,81 @@
             var img = document.createElement("img");
             img.src = msg.icon;
             
+
+            if(msg.class.includes("Death Knight")){             
+              document.getElementsByName("third_race")[0].style.backgroundColor = "#C41F3B";
+              document.getElementsByName("third_class")[0].style.backgroundColor = "#C41F3B";
+              document.getElementsByName("third")[0].style.backgroundColor = "#C41F3B";
+              document.getElementsByName("third_score")[0].style.backgroundColor = "#C41F3B";
+            }
+            if(msg.class.includes("Druid")){
+              document.getElementsByName("third_race")[0].style.backgroundColor = "#FF7D0A";
+              document.getElementsByName("third_class")[0].style.backgroundColor = "#FF7D0A";
+              document.getElementsByName("third")[0].style.backgroundColor = "#FF7D0A";
+              document.getElementsByName("third_score")[0].style.backgroundColor = "#FF7D0A";
+            }
+            if(msg.class.includes("Hunter")){
+              document.getElementsByName("third_race")[0].style.backgroundColor = "#ABD473";
+              document.getElementsByName("third_class")[0].style.backgroundColor = "#ABD473";
+              document.getElementsByName("third")[0].style.backgroundColor = "#ABD473";
+              document.getElementsByName("third_score")[0].style.backgroundColor = "#ABD473";
+            }
+            if(msg.class.includes("Demon")){
+              document.getElementsByName("third_race")[0].style.backgroundColor = "#A330C9";
+              document.getElementsByName("third_class")[0].style.backgroundColor = "#A330C9";
+              document.getElementsByName("third")[0].style.backgroundColor = "#A330C9";
+              document.getElementsByName("third_score")[0].style.backgroundColor = "#A330C9";
+            }
+            if(msg.class.includes("Mage")){
+              document.getElementsByName("third_race")[0].style.backgroundColor = "#69CCF0";
+              document.getElementsByName("third_class")[0].style.backgroundColor = "#69CCF0";
+              document.getElementsByName("third")[0].style.backgroundColor = "#69CCF0";
+              document.getElementsByName("third_score")[0].style.backgroundColor = "#69CCF0";
+            }
+            if(msg.class.includes("Monk")){
+              document.getElementsByName("third_race")[0].style.backgroundColor = "#00FF96";
+              document.getElementsByName("third_class")[0].style.backgroundColor = "#00FF96";
+              document.getElementsByName("third")[0].style.backgroundColor = "#00FF96";
+              document.getElementsByName("third_score")[0].style.backgroundColor = "#00FF96";
+            }
+            if(msg.class.includes("Paladin")){
+              document.getElementsByName("third_race")[0].style.backgroundColor = "#F58CBA";
+              document.getElementsByName("third_class")[0].style.backgroundColor = "#F58CBA";
+              document.getElementsByName("third")[0].style.backgroundColor = "#F58CBA";
+              document.getElementsByName("third_score")[0].style.backgroundColor = "#F58CBA";
+            }
+            if(msg.class.includes("Priest")){
+              document.getElementsByName("third_race")[0].style.backgroundColor = "#FFFFFF";
+              document.getElementsByName("third_class")[0].style.backgroundColor = "#FFFFFF";
+              document.getElementsByName("third")[0].style.backgroundColor = "#FFFFFF";
+              document.getElementsByName("third_score")[0].style.backgroundColor = "#FFFFFF";
+            }
+            if(msg.class.includes("Rogue")){
+              document.getElementsByName("third_race")[0].style.backgroundColor = "#FFF569";
+              document.getElementsByName("third_class")[0].style.backgroundColor = "#FFF569";
+              document.getElementsByName("third")[0].style.backgroundColor = "#FFF569";
+              document.getElementsByName("third_score")[0].style.backgroundColor = "#FFF569";
+            }
+            if(msg.class.includes("Shaman")){
+              document.getElementsByName("third_race")[0].style.backgroundColor = "#0070DE";
+              document.getElementsByName("third_class")[0].style.backgroundColor = "#0070DE";
+              document.getElementsByName("third")[0].style.backgroundColor = "#0070DE";
+              document.getElementsByName("third_score")[0].style.backgroundColor = "#0070DE";
+            }
+            if(msg.class.includes("Warlock")){
+              document.getElementsByName("third_race")[0].style.backgroundColor = "#9482C9";
+              document.getElementsByName("third_class")[0].style.backgroundColor = "#9482C9";
+              document.getElementsByName("third")[0].style.backgroundColor = "#9482C9";
+              document.getElementsByName("third_score")[0].style.backgroundColor = "#9482C9";
+            }
+            if(msg.class.includes("Warrior")){
+              document.getElementsByName("third_race")[0].style.backgroundColor = "#C79C6E";
+              document.getElementsByName("third_class")[0].style.backgroundColor = "#C79C6E";
+              document.getElementsByName("third")[0].style.backgroundColor = "#C79C6E";
+              document.getElementsByName("third_score")[0].style.backgroundColor = "#C79C6E";
+            }
+
+
             if(msg.icon == "http://media.blizzard.com/wow/legion-6a153ad2/images/metamorphosis-icon.png")
             {
                 img.height = 278;
@@ -197,6 +439,82 @@
 
             var img = document.createElement("img");
             
+
+            if(msg.class.includes("Death Knight")){             
+              document.getElementsByName("fourth_race")[0].style.backgroundColor = "#C41F3B";
+              document.getElementsByName("fourth_class")[0].style.backgroundColor = "#C41F3B";
+              document.getElementsByName("fourth")[0].style.backgroundColor = "#C41F3B";
+              document.getElementsByName("fourth_score")[0].style.backgroundColor = "#C41F3B";
+            }
+            if(msg.class.includes("Druid")){
+              document.getElementsByName("fourth_race")[0].style.backgroundColor = "#FF7D0A";
+              document.getElementsByName("fourth_class")[0].style.backgroundColor = "#FF7D0A";
+              document.getElementsByName("fourth")[0].style.backgroundColor = "#FF7D0A";
+              document.getElementsByName("fourth_score")[0].style.backgroundColor = "#FF7D0A";
+            }
+            if(msg.class.includes("Hunter")){
+              document.getElementsByName("fourth_race")[0].style.backgroundColor = "#ABD473";
+              document.getElementsByName("fourth_class")[0].style.backgroundColor = "#ABD473";
+              document.getElementsByName("fourth")[0].style.backgroundColor = "#ABD473";
+              document.getElementsByName("fourth_score")[0].style.backgroundColor = "#ABD473";
+            }
+            if(msg.class.includes("Demon")){
+              document.getElementsByName("fourth_race")[0].style.backgroundColor = "#A330C9";
+              document.getElementsByName("fourth_class")[0].style.backgroundColor = "#A330C9";
+              document.getElementsByName("fourth")[0].style.backgroundColor = "#A330C9";
+              document.getElementsByName("fourth_score")[0].style.backgroundColor = "#A330C9";
+            }
+            if(msg.class.includes("Mage")){
+              document.getElementsByName("fourth_race")[0].style.backgroundColor = "#69CCF0";
+              document.getElementsByName("fourth_class")[0].style.backgroundColor = "#69CCF0";
+              document.getElementsByName("fourth")[0].style.backgroundColor = "#69CCF0";
+              document.getElementsByName("fourth_score")[0].style.backgroundColor = "#69CCF0";
+            }
+            if(msg.class.includes("Monk")){
+              document.getElementsByName("fourth_race")[0].style.backgroundColor = "#00FF96";
+              document.getElementsByName("fourth_class")[0].style.backgroundColor = "#00FF96";
+              document.getElementsByName("fourth")[0].style.backgroundColor = "#00FF96";
+              document.getElementsByName("fourth_score")[0].style.backgroundColor = "#00FF96";
+            }
+            if(msg.class.includes("Paladin")){
+              document.getElementsByName("fourth_race")[0].style.backgroundColor = "#F58CBA";
+              document.getElementsByName("fourth_class")[0].style.backgroundColor = "#F58CBA";
+              document.getElementsByName("fourth")[0].style.backgroundColor = "#F58CBA";
+              document.getElementsByName("fourth_score")[0].style.backgroundColor = "#F58CBA";
+            }
+            if(msg.class.includes("Priest")){
+              document.getElementsByName("fourth_race")[0].style.backgroundColor = "#FFFFFF";
+              document.getElementsByName("fourth_class")[0].style.backgroundColor = "#FFFFFF";
+              document.getElementsByName("fourth")[0].style.backgroundColor = "#FFFFFF";
+              document.getElementsByName("fourth_score")[0].style.backgroundColor = "#FFFFFF";
+            }
+            if(msg.class.includes("Rogue")){
+              document.getElementsByName("fourth_race")[0].style.backgroundColor = "#FFF569";
+              document.getElementsByName("fourth_class")[0].style.backgroundColor = "#FFF569";
+              document.getElementsByName("fourth")[0].style.backgroundColor = "#FFF569";
+              document.getElementsByName("fourth_score")[0].style.backgroundColor = "#FFF569";
+            }
+            if(msg.class.includes("Shaman")){
+              document.getElementsByName("fourth_race")[0].style.backgroundColor = "#0070DE";
+              document.getElementsByName("fourth_class")[0].style.backgroundColor = "#0070DE";
+              document.getElementsByName("fourth")[0].style.backgroundColor = "#0070DE";
+              document.getElementsByName("fourth_score")[0].style.backgroundColor = "#0070DE";
+            }
+            if(msg.class.includes("Warlock")){
+              document.getElementsByName("fourth_race")[0].style.backgroundColor = "#9482C9";
+              document.getElementsByName("fourth_class")[0].style.backgroundColor = "#9482C9";
+              document.getElementsByName("fourth")[0].style.backgroundColor = "#9482C9";
+              document.getElementsByName("fourth_score")[0].style.backgroundColor = "#9482C9";
+            }
+            if(msg.class.includes("Warrior")){
+              document.getElementsByName("fourth_race")[0].style.backgroundColor = "#C79C6E";
+              document.getElementsByName("fourth_class")[0].style.backgroundColor = "#C79C6E";
+              document.getElementsByName("fourth")[0].style.backgroundColor = "#C79C6E";
+              document.getElementsByName("fourth_score")[0].style.backgroundColor = "#C79C6E";
+            }
+
+
+
             img.src = msg.icon;
             if(msg.icon == "http://media.blizzard.com/wow/legion-6a153ad2/images/metamorphosis-icon.png")
             {
@@ -214,27 +532,6 @@
 
             count = 0;
           }
-        //alert(class1);
-        
-
-
-//         var button = document.createElement("button");
-//         button.innerHTML = class1;
-//         var button2 = document.createElement("button");
-//         button2.innerHTML = class2;
-//         var button3 = document.createElement("button");
-//         button3.innerHTML = class3;
-//         var button4 = document.createElement("button");
-//         button4.innerHTML = class4;
-      
-
-
-// // 2. Append somewhere
-// var body = document.getElementsByTagName("body")[0];
-// body.appendChild(button);
-// body.appendChild(button2);
-// body.appendChild(button3);
-// body.appendChild(button4);
           
         });
 
@@ -243,3 +540,4 @@
 
   </body>
 </html>
+
