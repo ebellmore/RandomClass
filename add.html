@@ -75,6 +75,8 @@
     var socket = io();
 
     socket.on('inc vote', function(msg){
+      //alert("test");
+      console.log(msg);
     if(msg == 1){
     vote1++;
     document.getElementsByName("first_score")[0].innerHTML = vote1;
@@ -91,7 +93,7 @@
       vote4++;
       document.getElementsByName("fourth_score")[0].innerHTML = vote4;
     }
-      })
+      });
       
       $(function () {
         var count = 0;
@@ -618,23 +620,23 @@
     //   console.log(num);
     //   alert(num);
 
-    if(num == 1){
-      vote1++;
-      document.getElementsByName("first_score")[0].innerHTML = vote1;
+    // if(num == 1){
+    //   vote1++;
+    //   document.getElementsByName("first_score")[0].innerHTML = vote1;
 
-    }
-    if(num == 2){
-      vote2++;
-      document.getElementsByName("second_score")[0].innerHTML = vote2;
-    }
-    if(num == 3){
-      vote3++;
-      document.getElementsByName("third_score")[0].innerHTML = vote3;
-    }
-    if(num == 4){
-      vote4++;
-      document.getElementsByName("fourth_score")[0].innerHTML = vote4;
-    }
+    // }
+    // if(num == 2){
+    //   vote2++;
+    //   document.getElementsByName("second_score")[0].innerHTML = vote2;
+    // }
+    // if(num == 3){
+    //   vote3++;
+    //   document.getElementsByName("third_score")[0].innerHTML = vote3;
+    // }
+    // if(num == 4){
+    //   vote4++;
+    //   document.getElementsByName("fourth_score")[0].innerHTML = vote4;
+    // }
 
     // });
 
