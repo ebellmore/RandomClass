@@ -53,18 +53,20 @@
 </div> 
 <br>
 <br>
+    <div id ="25"  class="col" style="height:50px;width:150px;text-align:center;border:1.5px solid #171717;font-size:26px;background-color: white">Tie Break</div>
+    <div id ="26"  class="col" style="height:150px;width:150px;text-align:center;border:1.5px solid #171717;font-size:80px;background-color: white"></div>
 <br>
 <br>
 <div class="row">
-  <div id ="17" id ="2" id ="2" id ="2" id ="2" id ="2" id ="2" id ="2" class="col" name="tanks" style="height:75px;margin-left:10%;text-align:center;border:1.5px solid #171717;font-size:40px;background-color: white"></div>
-  <div id ="18" id ="2" id ="2" id ="2" id ="2" id ="2" id ="2" class="col" name="healers" style="text-align:center;border:1.5px solid #171717;font-size:40px;background-color: white"></div>
-  <div id ="19" id ="2" id ="2" id ="2" id ="2" id ="2" class="col" name="melee" style="text-align:center;border:1.5px solid #171717;font-size:40px;background-color: white"></div>
-  <div id ="20" id ="2" id ="2" id ="2" id ="2" class="col" name="ranged" style="margin-right:10%;text-align:center;border:1.5px solid #171717;font-size:40px;background-color: white"></div>
+  <div id ="17"  class="col" name="tanks" style="height:75px;margin-left:10%;text-align:center;border:1.5px solid #171717;font-size:40px;background-color: white"></div>
+  <div id ="18"  class="col" name="healers" style="text-align:center;border:1.5px solid #171717;font-size:40px;background-color: white"></div>
+  <div id ="19"  class="col" name="melee" style="text-align:center;border:1.5px solid #171717;font-size:40px;background-color: white"></div>
+  <div id ="20"  class="col" name="ranged" style="margin-right:10%;text-align:center;border:1.5px solid #171717;font-size:40px;background-color: white"></div>
 </div> 
 <div class="row">
-  <div id ="21" id ="2" id ="2" id ="2" class="col" name="tanks_li" style="margin-left:10%;text-align:center;border:1.5px solid #171717;font-size:40px;background-color: white"></div>
-  <div id ="22" id ="2" id ="2" class="col" name="healers_li" style="text-align:center;border:1.5px solid #171717;font-size:40px;background-color: white"></div>
-  <div id ="23" id ="2" class="col" name="melee_li" style="text-align:center;border:1.5px solid #171717;font-size:40px;background-color: white"></div>
+  <div id ="21" class="col" name="tanks_li" style="margin-left:10%;text-align:center;border:1.5px solid #171717;font-size:40px;background-color: white"></div>
+  <div id ="22" class="col" name="healers_li" style="text-align:center;border:1.5px solid #171717;font-size:40px;background-color: white"></div>
+  <div id ="23" class="col" name="melee_li" style="text-align:center;border:1.5px solid #171717;font-size:40px;background-color: white"></div>
   <div id ="24" class="col" name="ranged_li" style="margin-right:10%;text-align:center;border:1.5px solid #171717;font-size:40px;background-color: white"></div>
 </div> 
 
@@ -103,7 +105,30 @@
     }
     }
     
+    socket.on('tiebreak', function(msg){
+      //alert("tie");
+      document.getElementById(26).innerHTML = msg;
+      if(msg == 1){
+    vote1++; 
+    }
+    if(msg == 2){
+      vote2++;
+      
+    }
+    if(msg == 3){
+      vote3++;
+      
+    }
+    if(msg == 4){
+      vote4++;
+    }
 
+    document.getElementsByName("first_score")[0].innerHTML = vote1;
+    document.getElementsByName("second_score")[0].innerHTML = vote2;
+    document.getElementsByName("third_score")[0].innerHTML = vote3;
+    document.getElementsByName("fourth_score")[0].innerHTML = vote4;
+
+    });
     socket.on('inc vote', function(msg){
       //alert("test");
       console.log(msg);

@@ -28,6 +28,11 @@ io.on('connection', function(socket){
   	//socket.emit('vote', msg);
   	console.log(msg);
   });
+
+  socket.on('tie', function(msg){
+  	io.emit('tiebreak', msg);
+  	console.log(msg);
+  });
 });
     
 

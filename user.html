@@ -66,6 +66,10 @@
 
 
 
+<button onclick="tie(2)"> 2 way Tie Break </button>
+<br>
+<button onclick="tie(3)"> 3 way Tie Break </button>
+<button onclick="tie(4)"> 4 way Tie Break </button>
 
 
 
@@ -358,6 +362,13 @@ sendimg = img;
     }
 })();
 
+
+function tie(num){
+  var socket2 = io(); 
+  var tie = Math.floor(Math.random() * num) + 1
+  alert(tie);
+  socket2.emit('tie', tie);
+}
 
 </script>
 
