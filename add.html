@@ -175,6 +175,11 @@
           
           if(count == 1)
           {
+
+            document.getElementsByName("first")[0].setAttribute('onclick','');
+            document.getElementsByName("second")[0].setAttribute('onclick','');
+            document.getElementsByName("third")[0].setAttribute('onclick','');
+            document.getElementsByName("fourth")[0].setAttribute('onclick','');
             voted = 0;
             if(vote1 > 0 || vote2 > 0 || vote3 > 0 || vote4 > 0 )
             {
