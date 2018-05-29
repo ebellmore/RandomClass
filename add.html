@@ -51,11 +51,28 @@
   <div class="col" name="third_score" style="text-align:center;border:1.5px solid #171717;font-size:40px;"></div>
   <div class="col" name="fourth_score" style="margin-right:10%;text-align:center;border:1.5px solid #171717;font-size:40px;"></div>
 </div> 
+<br>
+<br>
+<br>
+<br>
+<div class="row">
+  <div class="col" name="tanks" style="height:75px;margin-left:10%;text-align:center;border:1.5px solid #171717;font-size:40px;background-color: white"></div>
+  <div class="col" name="healers" style="text-align:center;border:1.5px solid #171717;font-size:40px;background-color: white"></div>
+  <div class="col" name="melee" style="text-align:center;border:1.5px solid #171717;font-size:40px;background-color: white"></div>
+  <div class="col" name="ranged" style="margin-right:10%;text-align:center;border:1.5px solid #171717;font-size:40px;background-color: white"></div>
+</div> 
+<div class="row">
+  <div class="col" name="tanks_li" style="margin-left:10%;text-align:center;border:1.5px solid #171717;font-size:40px;background-color: white"></div>
+  <div class="col" name="healers_li" style="text-align:center;border:1.5px solid #171717;font-size:40px;background-color: white"></div>
+  <div class="col" name="melee_li" style="text-align:center;border:1.5px solid #171717;font-size:40px;background-color: white"></div>
+  <div class="col" name="ranged_li" style="margin-right:10%;text-align:center;border:1.5px solid #171717;font-size:40px;background-color: white"></div>
+</div> 
 
 </div>
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
 
 
 
@@ -74,6 +91,10 @@
     var vote4 = 0;
     var socket = io();
     var voted = 0;
+    var tankCount = 0;
+    var meleeCount = 0;
+    var rangedCount = 0;
+    var healerCount = 0;
 
     socket.on('inc vote', function(msg){
       //alert("test");
@@ -127,65 +148,65 @@
             if(vote1 > 0 || vote2 > 0 || vote3 > 0 || vote4 > 0 )
             {
               var winner = Math.max(vote1,vote2,vote3,vote4);
-              if(vote1 == vote2 && vote1 == winner){
-                var coin = Math.floor(Math.random() * 100) + 1
-                if(coin > 50){
-                  vote2++;
-                }
-                else{
-                  vote1++;
-                }
-              }
+              // if(vote1 == vote2 && vote1 == winner){
+              //   var coin = Math.floor(Math.random() * 100) + 1
+              //   if(coin > 50){
+              //     vote2++;
+              //   }
+              //   else{
+              //     vote1++;
+              //   }
+              // }
 
-              if(vote1 == vote3 && vote1 == winner){
-                var coin = Math.floor(Math.random() * 100) + 1
-                if(coin > 50){
-                  vote3++;
-                }
-                else{
-                  vote1++;
-                }
-              }
+              // if(vote1 == vote3 && vote1 == winner){
+              //   var coin = Math.floor(Math.random() * 100) + 1
+              //   if(coin > 50){
+              //     vote3++;
+              //   }
+              //   else{
+              //     vote1++;
+              //   }
+              // }
 
-              if(vote1 == vote4 && vote1 == winner){
-                var coin = Math.floor(Math.random() * 100) + 1
-                if(coin > 50){
-                  vote4++;
-                }
-                else{
-                  vote1++;
-                }
-              }
+              // if(vote1 == vote4 && vote1 == winner){
+              //   var coin = Math.floor(Math.random() * 100) + 1
+              //   if(coin > 50){
+              //     vote4++;
+              //   }
+              //   else{
+              //     vote1++;
+              //   }
+              // }
 
-              if(vote2 == vote3 && vote2 == winner){
-                var coin = Math.floor(Math.random() * 100) + 1
-                if(coin > 50){
-                  vote3++;
-                }
-                else{
-                  vote2++;
-                }
-              }
+              // if(vote2 == vote3 && vote2 == winner){
+              //   var coin = Math.floor(Math.random() * 100) + 1
+              //   if(coin > 50){
+              //     vote3++;
+              //   }
+              //   else{
+              //     vote2++;
+              //   }
+              // }
 
-              if(vote2 == vote4 && vote2 == winner){
-                var coin = Math.floor(Math.random() * 100) + 1
-                if(coin > 50){
-                  vote4++;
-                }
-                else{
-                  vote2++;
-                }
-              }
+              // if(vote2 == vote4 && vote2 == winner){
+              //   var coin = Math.floor(Math.random() * 100) + 1
+              //   if(coin > 50){
+              //     vote4++;
+              //   }
+              //   else{
+              //     vote2++;
+              //   }
+              // }
 
-              if(vote3 == vote4 && vote3 == winner){
-                var coin = Math.floor(Math.random() * 100) + 1
-                if(coin > 50){
-                  vote4++;
-                }
-                else{
-                  vote3++;
-                }
-              }
+              // if(vote3 == vote4 && vote3 == winner){
+              //   var coin = Math.floor(Math.random() * 100) + 1
+              //   if(coin > 50){
+              //     vote4++;
+              //   }
+              //   else{
+              //     vote3++;
+              //   }
+              // }
 
 
               if( winner == vote1)
@@ -205,7 +226,45 @@
                 var winningclass = document.getElementsByName("fourth_class")[0].innerHTML;
               }
 
-              alert(winningclass);
+              if(winningclass == "Brewmaster Monk" || winningclass == "Protection Paladin" || winningclass == "Protection Warrior" || winningclass == "Guardian Druid" || winningclass == "Vengeance Demon Hunter" || winningclass == "Blood Death Knight")
+              {
+                tankCount++;
+                document.getElementsByName("tanks")[0].innerHTML = "Tanks: " + tankCount;
+                var ul = document.createElement("UL")
+                ul.style.fontSize = "20px";
+                ul.innerHTML = winningclass;
+                document.getElementsByName("tanks_li")[0].appendChild(ul);
+              }
+              else if(winningclass == "Havoc Demon Hunter" || winningclass == "Arms Warrior" || winningclass == "Fury Warrior" || winningclass == "Enhancement Shaman" || winningclass == "Assassination Rogue" || winningclass == "Combat Rogue" || winningclass == "Subtlety Rogue" || winningclass == "Retribution Paladin" || winningclass == "Windwalker Monk" || winningclass == "Feral Druid" || winningclass == "Frost Death Knight" || winningclass == "Unholy Death Knight" || winningclass == "Survival Hunter")
+              {
+                meleeCount++;
+                document.getElementsByName("melee")[0].innerHTML = "Melee: " + meleeCount;
+                var ul = document.createElement("UL")
+                ul.style.fontSize = "20px";
+                ul.innerHTML = winningclass;
+                document.getElementsByName("melee_li")[0].appendChild(ul);
+
+              }
+              else if(winningclass == "Holy Priest" || winningclass == "Holy Paladin" || winningclass == "Discipline Priest" || winningclass == "Restoration Druid" || winningclass == "Restoration Shaman" || winningclass == "Mistweaver Monk")
+              {
+                healerCount++;
+                document.getElementsByName("healers")[0].innerHTML = "Healers: " + healerCount;
+                var ul = document.createElement("UL")
+                ul.style.fontSize = "20px";
+                ul.innerHTML = winningclass;
+                document.getElementsByName("healers_li")[0].appendChild(ul);
+              }
+              else
+              {
+                rangedCount++;
+                document.getElementsByName("ranged")[0].innerHTML = "Ranged: " + rangedCount;
+                var ul = document.createElement("UL")
+                ul.style.fontSize = "20px";
+                ul.innerHTML = winningclass;
+                document.getElementsByName("ranged_li")[0].appendChild(ul);
+              }
+              
+              
             }
             if(msg.class.includes("Death Knight")){             
               document.getElementsByName("first_race")[0].style.backgroundColor = "#C41F3B";
