@@ -386,13 +386,29 @@
             img.src = msg.icon;
             if(msg.icon == "http://media.blizzard.com/wow/legion-6a153ad2/images/metamorphosis-icon.png")
             {
+             if(screen.width < 1000)
+              {
+                img.width = 145;
+                img.height = 145;
+              }
+              else
+              {
                 img.height = 278;
                 img.width = 278;
+              }
             }
             else
             {
-              img.width = 300;
-              img.height = 300;
+              if(screen.width < 1000)
+              {
+                img.width = 150;
+                img.height = 150;
+              }
+              else
+              {
+                img.width = 300;
+                img.height = 300;
+              }
             }
                     
             var x = document.getElementsByName("first")[0];
@@ -500,13 +516,29 @@
 
             if(msg.icon == "http://media.blizzard.com/wow/legion-6a153ad2/images/metamorphosis-icon.png")
             {
+             if(screen.width < 1000)
+              {
+                img.width = 145;
+                img.height = 145;
+              }
+              else
+              {
                 img.height = 278;
                 img.width = 278;
+              }
             }
             else
             {
-              img.width = 300;
-              img.height = 300;
+              if(screen.width < 1000)
+              {
+                img.width = 150;
+                img.height = 150;
+              }
+              else
+              {
+                img.width = 300;
+                img.height = 300;
+              }
             }
 
             var x = document.getElementsByName("second")[0];
@@ -718,15 +750,32 @@
 
 
             img.src = msg.icon;
+            alert(screen.width);
             if(msg.icon == "http://media.blizzard.com/wow/legion-6a153ad2/images/metamorphosis-icon.png")
             {
+              if(screen.width < 1000)
+              {
+                img.width = 145;
+                img.height = 145;
+              }
+              else
+              {
                 img.height = 278;
                 img.width = 278;
+              }
             }
             else
             {
-              img.width = 300;
-              img.height = 300;
+              if(screen.width < 1000)
+              {
+                img.width = 150;
+                img.height = 150;
+              }
+              else
+              {
+                img.width = 300;
+                img.height = 300;
+              }
             }
 
             var x = document.getElementsByName("fourth")[0];
